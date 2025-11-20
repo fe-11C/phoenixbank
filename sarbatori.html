@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Bank – Crăciun & Revelion</title>
+    <style>
+/* ❄ ANIMATION FULGI DE NEA ❄ */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    user-select: none;
+    z-index: 9999;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.5; }
+}
+
+        :root {
+            --gold: #f6c453;
+            --red: #d64541;
+            --dark: #071123;
+            --bg: radial-gradient(circle at top, #1c2940 0, #040813 55%, #02040a 100%);
+            --card-bg: rgba(6, 13, 29, 0.9);
+            --text-main: #f7f7ff;
+            --text-muted: #a9b3d1;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: "Times New Roman", "Times", serif;
+            margin-top: 0;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* „Lights” deasupra */
+        .lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            pointer-events: none;
+            background:
+            radial-gradient(circle at 5% 100%, rgba(246,196,83,0.8) 0, transparent 55%),
+            radial-gradient(circle at 20% 100%, rgba(214,69,65,0.8) 0, transparent 55%),
+            radial-gradient(circle at 40% 100%, rgba(56,182,255,0.8) 0, transparent 55%),
+            radial-gradient(circle at 60% 100%, rgba(246,196,83,0.8) 0, transparent 55%),
+            radial-gradient(circle at 80% 100%, rgba(214,69,65,0.8) 0, transparent 55%),
+            radial-gradient(circle at 95% 100%, rgba(56,182,255,0.8) 0, transparent 55%);
+            opacity: 0.9;
+            filter: blur(0.6px);
+        }
+
+        header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.1rem 1.2rem 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .logo-img {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            background: #fff;
+            padding: 4px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text span:first-child {
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            font-size: 0.9rem;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .back-link {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(246,196,83,0.4);
+            background: rgba(3,6,18,0.7);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.2rem 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 2rem;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+
+        .badge {
+            font-size: 0.78rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.1rem, 3.3vw, 2.8rem);
+        }
+
+        .hero-slogan {
+            font-style: italic;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .hero-actions {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            border-radius: 999px;
+            padding: 0.7rem 1.3rem;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f6c453, #d64541);
+            color: #020308;
+            font-weight: 600;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid rgba(246,196,83,0.6);
+        }
+
+        .hero-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 1.3rem 1.1rem;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at 0 0, rgba(246,196,83,0.25), transparent 60%);
+            opacity: 0.8;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mascot-row {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .mascot-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 999px;
+            background: #fff;
+            padding: 4px;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        }
+
+        .hero-inner p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .countdown {
+            margin-top: 0.7rem;
+            font-size: 0.9rem;
+        }
+
+        .countdown span {
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* Oferte festiv */
+        section {
+            margin-top: 2.4rem;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: var(--gold);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 560px;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.4rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1rem 0.95rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            font-size: 0.9rem;
+        }
+
+        .offer-tag {
+            font-size: 0.75rem;
+            padding: 0.18rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(246,196,83,0.8);
+            color: var(--gold);
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .offer-price {
+            margin-top: 0.3rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .offer-note {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact */
+        .contact {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 1.4rem;
+            margin-top: 1.2rem;
+        }
+
+        form {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1rem 0.9rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            margin-bottom: 0.15rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid rgba(169,179,209,0.5);
+            background: rgba(3,7,18,0.7);
+            color: var(--text-main);
+            padding: 0.5rem 0.6rem;
+            margin-bottom: 0.7rem;
+            font-family: inherit;
+            font-size: 0.88rem;
+        }
+
+        textarea { min-height: 90px; resize: vertical; }
+
+        .school-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1rem 0.9rem;
+            font-size: 0.9rem;
+        }
+
+        .school-card p {
+            margin: 0.25rem 0;
+        }
+
+        footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.1rem 1.2rem 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Widget muzică (opțional) */
+        .music-widget {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 5;
+            background: rgba(3,7,18,0.95);
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 0.45rem 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            font-size: 0.82rem;
+        }
+
+        .music-widget button {
+            border: none;
+            border-radius: 999px;
+            padding: 0.35rem 0.7rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            background: linear-gradient(135deg, #f6c453, #d64541);
+            color: #020308;
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .hero-card {
+                order: -1;
+            }
+            .offers-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .contact {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 720px) {
+            .offers-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+.christmas-tree {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 160px;
+    z-index: 50;
+    pointer-events: none;
+    opacity: 0.95;
+}
+
+.festive-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background:
+        radial-gradient(circle, #ffeb3b 0%, transparent 60%),
+        radial-gradient(circle, #ff5722 0%, transparent 60%),
+        radial-gradient(circle, #4fc3f7 0%, transparent 60%),
+        radial-gradient(circle, #8bc34a 0%, transparent 60%);
+    background-size: 80px 80px;
+    background-repeat: repeat-x;
+    animation: lights 2s infinite alternate;
+    pointer-events: none;
+    opacity: 0.9;
+    filter: blur(1px);
+    z-index: 9998;
+}
+
+@keyframes lights {
+    0% { filter: brightness(0.5); }
+    100% { filter: brightness(1.8); }
+}
+
+
+    </style>
+</head>
+<body>
+<div class="festive-lights"></div>
+<div class="lights"></div>
+
+<header>
+    <div class="logo">
+        <img src="sigla.png" alt="Sigla Phoenix Bank" class="logo-img">
+        <div class="logo-text">
+            <span>PHOENIX BANK</span>
+            <span>Crăciun &amp; Revelion</span>
+        </div>
+    </div>
+    <a href="index.html" class="back-link">← Înapoi la pagina principală</a>
+</header>
+
+<main>
+    <section class="hero">
+        <div>
+            <div class="badge">campanie specială de sărbători</div>
+            <h1>Crăciun &amp; Revelion la Phoenix Bank</h1>
+            <p class="hero-slogan">„... unde fiecare vis prinde aripi din nou și în noul an”</p>
+            <p>
+                Pagina aceasta este dedicată activităților de Crăciun și Revelion ale firmei de
+                exercițiu Phoenix Bank. Aici puteți prezenta clienților de exercițiu ofertele
+                speciale, activitățile realizate la clasă și planurile financiare pentru noul an.
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn btn-primary" onclick="document.getElementById('oferte').scrollIntoView({behavior:'smooth'})">
+                    🎁 Vezi ofertele de Sărbători
+                </button>
+                <button class="btn btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                    📩 Trimite o urare de exercițiu
+                </button>
+            </div>
+
+            <div class="countdown">
+                Timp rămas până la Revelion:
+                <span id="countdown">calculăm...</span>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-inner">
+                <div class="mascot-row">
+                    <img src="mascota.png" alt="Mascota Phoenix Bank" class="mascot-img">
+                    <div>
+                        <strong>Mascota Phoenix Bank</strong><br>
+                        gata să întâmpine noul an cu energie și zâmbete
+                    </div>
+                </div>
+                <p>
+                    Folosiți această pagină la ore pentru a organiza:
+                </p>
+                <ul style="padding-left:1.1rem; margin-top:0.2rem;">
+                    <li>simulări de „campanii de Crăciun” pentru clienți;</li>
+                    <li>planuri de economii pentru cadouri și vacanță;</li>
+                    <li>rezoluții financiare pentru noul an școlar.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferte">
+        <div class="section-label">oferte de sărbători</div>
+        <h2>Ofertele Phoenix Bank de Crăciun &amp; Revelion</h2>
+        <p class="section-subtitle">
+            Toate ofertele sunt de exercițiu și pot fi adaptate după ideile elevilor. Valorile și
+            procentajele sunt orientative, pentru simulări la ore.
+        </p>
+
+        <div class="offers-grid">
+            <div class="card">
+                <span class="offer-tag">Economii de Crăciun</span>
+                <h3>Pachet „Cadouri cu cap”</h3>
+                <p>
+                    Plan de economii început din noiembrie, pentru a strânge bani de cadouri
+                    pentru familie și prieteni.
+                </p>
+                <div class="offer-price">Bonus educativ: +2% dobândă (simulare)</div>
+                <p class="offer-note">
+                    Poate fi folosit la ore pentru a calcula sumele economisite lună de lună.
+                </p>
+            </div>
+
+            <div class="card">
+                <span class="offer-tag">Revelion fără griji</span>
+                <h3>Pachet „An Nou fără datorii”</h3>
+                <p>
+                    Plan pentru achitarea „datoriilor” de exercițiu până la 31 decembrie,
+                    astfel încât noul an începe pe plus.
+                </p>
+                <div class="offer-price">Dobândă penalizatoare: 0% (simulare)</div>
+                <p class="offer-note">
+                    Bun pentru lecții despre buget personal și responsabilitate financiară.
+                </p>
+            </div>
+
+            <div class="card">
+                <span class="offer-tag">Card cadou</span>
+                <h3>„Phoenix Gift Card”</h3>
+                <p>
+                    Card simbolic oferit colegilor sau altor firme de exercițiu, cu o sumă
+                    de „bani virtuali” folosiți în cadrul proiectelor.
+                </p>
+                <div class="offer-price">Taxă emitere: 0 lei (simulare)</div>
+                <p class="offer-note">
+                    Poate fi folosit pentru a exersa tranzacții între firme de exercițiu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-label">mesaje &amp; urări</div>
+        <h2>Trimite o urare de Sărbători (exercițiu)</h2>
+        <p class="section-subtitle">
+            Elevii pot completa formularul ca „clienți”, iar echipa Phoenix Bank răspunde în rolul
+            de consilieri bancari.
+        </p>
+
+        <div class="contact">
+            <form>
+                <label for="nume">Nume complet</label>
+                <input id="nume" type="text" placeholder="Ex: Ionescu Maria">
+
+                <label for="mesaj">Mesaj de Sărbători</label>
+                <textarea id="mesaj" placeholder="Scrie aici urarea ta de Crăciun și Revelion..."></textarea>
+
+                <button type="button" class="btn btn-primary" onclick="alert('Mesaj trimis (simulare). Crăciun fericit și La mulți ani din partea echipei Phoenix Bank! 🎄✨')">
+                    Trimite urarea (simulare)
+                </button>
+            </form>
+
+            <div class="school-card">
+                <p><strong>Colegiul Tehnologic „Grigore Cerchez”</strong></p>
+                <p><strong>Adresă:</strong> Calea Șerban Vodă nr. 280</p>
+                <p><strong>Telefon:</strong> 021.336.58.90</p>
+                <p><strong>E-mail firmă de exercițiu:</strong><br>
+                    <a href="mailto:fe.phoenixbank@gmail.com">fe.phoenixbank@gmail.com</a>
+                </p>
+                <p class="offer-note">
+                    Aceste informații pot fi afișate pe ecran la serbări, târguri ale firmelor
+                    de exercițiu sau ore festive.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div>
+        © <span id="year"></span> Phoenix Bank – Pagina de Crăciun &amp; Revelion.
+        „... unde fiecare vis prinde aripi din nou”
+    </div>
+</footer>
+
+<!-- Widget muzică de fundal (opțional) -->
+<div class="music-widget">
+    <span>🎵 Coloană sonoră de Sărbători</span>
+    <button id="musicToggle" type="button">▶️ Pornește muzica</button>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="muzica_festiva.mp3" type="audio/mpeg">
+    Browserul tău nu suportă redarea audio.
+</audio>
+
+<script>
+    // Anul în footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Countdown până la 31 decembrie ora 23:59
+    const countdownEl = document.getElementById('countdown');
+    function updateCountdown() {
+        const now = new Date();
+        const target = new Date(now.getFullYear(), 11, 31, 23, 59, 59); // 31 dec
+        const diff = target - now;
+        if (diff <= 0) {
+            countdownEl.textContent = 'La mulți ani! 🥂';
+            return;
+        }
+        const sec = Math.floor(diff / 1000);
+        const days = Math.floor(sec / 86400);
+        const hours = Math.floor((sec % 86400) / 3600);
+        const minutes = Math.floor((sec % 3600) / 60);
+        const seconds = sec % 60;
+        countdownEl.textContent =
+            days + 'z ' +
+            String(hours).padStart(2,'0') + 'h ' +
+            String(minutes).padStart(2,'0') + 'm ' +
+            String(seconds).padStart(2,'0') + 's';
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Muzică de fundal
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    let musicPlaying = false;
+
+    musicToggle.addEventListener('click', async () => {
+        try {
+            if (!musicPlaying) {
+                await bgMusic.play();
+                musicPlaying = true;
+                musicToggle.textContent = '⏸ Pauză muzică';
+            } else {
+                bgMusic.pause();
+                musicPlaying = false;
+                musicToggle.textContent = '▶️ Pornește muzica';
+            }
+        } catch (e) {
+            alert('Browserul a blocat redarea. Apasă din nou pe buton sau verifică setările de sunet 😊');
+        }
+    });
+</script>
+
+<script>
+// ❄ GENERATOR FULGI DE NEA ❄
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    snowflake.textContent = "❄";
+
+    snowflake.style.left = Math.random() * 100 + "vw";
+    snowflake.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    snowflake.style.opacity = Math.random();
+
+    document.body.appendChild(snowflake);
+
+    setTimeout(() => {
+        snowflake.remove();
+    }, 10000);
+}
+
+setInterval(createSnowflake, 150); // densitate fulgi
+</script>
+
+<div class="christmas-tree">
+    <img src="https://i.imgur.com/BcX5bX0.png" style="width:100%;" alt="Brad de Crăciun">
+</div>
+
+
+</body>
+</html>

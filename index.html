@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Bank - Firmă de exercițiu</title>
+    <meta name="description" content="Phoenix Bank ... unde fiecare vis prinde aripi din nou - firmă de exercițiu, specializarea Tehnician în activități economice">
+    <style>
+        :root {
+            --primary: #b8860b;     /* auriu */
+            --primary-soft: #f2e4b8;
+            --secondary: #1b365d;   /* albastru închis, stil bancar */
+            --bg: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #222222;
+            --text-muted: #666666;
+            --shadow-soft: 0 12px 30px rgba(0,0,0,0.08);
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background: radial-gradient(circle at top, #ffffff 0, #f5f5f7 40%, #ececf2 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Times New Roman", "Times", serif;
+            margin-top: 0;
+            color: var(--secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header & navigație */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(245,245,247,0.96);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.6rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-img {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            background: #fff;
+            padding: 4px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            object-fit: cover;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text span:first-child {
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            font-size: 0.9rem;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        nav a {
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            color: var(--secondary);
+            transition: background 0.2s, color 0.2s, transform 0.1s;
+        }
+
+        nav a:hover {
+            background: var(--primary-soft);
+            color: #000;
+            transform: translateY(-1px);
+        }
+
+        .nav-cta {
+            border: 1px solid rgba(184,134,11,0.4);
+            background: linear-gradient(135deg, #fff7df, #f4e1ab);
+            font-weight: 600;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* Layout general */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 1.2rem 3rem;
+        }
+
+        section {
+            margin: 3rem 0;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 600px;
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 2rem;
+            align-items: center;
+            padding-top: 1.2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 3.1vw, 2.6rem);
+        }
+
+        .hero-slogan {
+            font-style: italic;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero-text {
+            color: var(--text-muted);
+            margin: 1rem 0 1.4rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+        }
+
+        .btn {
+            border-radius: 999px;
+            padding: 0.7rem 1.4rem;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: transform 0.1s, box-shadow 0.1s, background 0.1s, color 0.1s;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffd27a, #b8860b);
+            color: #fff;
+            box-shadow: 0 12px 30px rgba(184,134,11,0.4);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 16px 36px rgba(184,134,11,0.5);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(27,54,93,0.25);
+            background: rgba(255,255,255,0.9);
+            color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-soft);
+        }
+
+        .hero-badge {
+            margin-top: 1.2rem;
+            padding: 0.7rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.9);
+            border: 1px dashed rgba(184,134,11,0.5);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hero-badge span {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .hero-visual {
+            background: radial-gradient(circle at top, #fff7df 0, #f0e4c0 45%, #fff 100%);
+            border-radius: var(--radius-xl);
+            padding: 1.4rem;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-visual h3 {
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-tagline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .mascot-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.6rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(184,134,11,0.3);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .mascot-img {
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            background: #fff;
+            padding: 2px;
+            object-fit: cover;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap: 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .hero-stat-card {
+            background: rgba(255,255,255,0.9);
+            border-radius: var(--radius-lg);
+            padding: 0.7rem 0.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .hero-stat-card strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero-decor {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .hero-circle {
+            position: absolute;
+            border-radius: 999px;
+            border: 1px solid rgba(184,134,11,0.3);
+        }
+
+        .hero-circle.one {
+            width: 120px;
+            height: 120px;
+            top: -30px;
+            right: -30px;
+        }
+
+        .hero-circle.two {
+            width: 80px;
+            height: 80px;
+            bottom: -20px;
+            left: -10px;
+        }
+
+        /* Carduri & grilă */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.3rem;
+            margin-top: 1.6rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1.2rem 1.1rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-title-small {
+            font-size: 1.02rem;
+        }
+
+        .pill {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(184,134,11,0.25);
+            background: rgba(255,249,231,0.8);
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .card ul {
+            padding-left: 1.1rem;
+            margin: 0.4rem 0 0;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Oferte */
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.3rem;
+            margin-top: 1.6rem;
+        }
+
+        .offer-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(184,134,11,0.35);
+            background: rgba(255,249,231,0.95);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .offer-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+        }
+
+        .offer-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Echipa */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.4rem;
+        }
+
+        .team-dept {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1rem 1rem 0.9rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .team-dept h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .team-role {
+            padding: 0.35rem 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.06);
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .team-role:last-child {
+            border-bottom: none;
+        }
+
+        .team-role strong {
+            color: var(--secondary);
+        }
+
+        .team-role span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Organigramă */
+        .org-container {
+            margin-top: 1.6rem;
+            background: radial-gradient(circle at top, #fffaf0 0, #ffffff 50%, #f5f5f7 100%);
+            border-radius: var(--radius-xl);
+            padding: 1.3rem 1.2rem;
+            box-shadow: var(--shadow-soft);
+            overflow-x: auto;
+        }
+
+.org-image {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 18px;
+    background: #ffffff;
+    padding: 0.6rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .org-box {
+            min-width: 180px;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 0.6rem 0.8rem;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            border-top: 3px solid var(--primary);
+            font-size: 0.86rem;
+        }
+
+        .org-box .role {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .org-box .name {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .org-box .dept-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .org-connector {
+            height: 18px;
+            border-left: 1px solid rgba(0,0,0,0.2);
+            margin: -0.4rem auto 0.2rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+        }
+
+        form {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1.2rem 1rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--secondary);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.15);
+            padding: 0.55rem 0.65rem;
+            margin-bottom: 0.8rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .school-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 1rem 1rem 0.9rem;
+            box-shadow: var(--shadow-soft);
+            font-size: 0.9rem;
+        }
+
+        .school-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .school-card p {
+            margin: 0.2rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #111318;
+            color: #d7d7de;
+            padding: 1.3rem 1.2rem 1.4rem;
+            margin-top: 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            font-size: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+
+        .footer-inner span {
+            opacity: 0.85;
+        }
+
+        /* Widget muzică de fundal */
+        .music-widget {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 60;
+            background: rgba(17,19,24,0.92);
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 0.45rem 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+            font-size: 0.82rem;
+        }
+
+        .music-widget button {
+            border: none;
+            border-radius: 999px;
+            padding: 0.35rem 0.7rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            background: linear-gradient(135deg, #ffd27a, #b8860b);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .music-widget span {
+            opacity: 0.9;
+        }
+
+        /* Responsivitate */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .hero-visual {
+                order: -1;
+            }
+            .cards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .team-grid, .contact-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .offers-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-toggle {
+                display: block;
+            }
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(245,245,247,0.98);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.6rem 1.1rem 0.8rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+                transform-origin: top;
+                transform: scaleY(0);
+                opacity: 0;
+                pointer-events: none;
+                transition: transform 0.15s ease-out, opacity 0.15s;
+            }
+            nav.nav-open {
+                transform: scaleY(1);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            nav a {
+                width: 100%;
+                padding-left: 0;
+            }
+            main {
+                padding-top: 1.2rem;
+            }
+            .cards-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .offers-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">
+            <img src="sigla.png" alt="Sigla Phoenix Bank" class="logo-img">
+            <div class="logo-text">
+                <span>PHOENIX BANK</span>
+                <span>firmă de exercițiu</span>
+            </div>
+        </div>
+        <div class="nav-toggle" id="navToggle">☰</div>
+        <nav id="navMenu">
+            <a href="#acasa">Acasă</a>
+            <a href="#despre">Despre</a>
+            <a href="#servicii">Servicii</a>
+            <a href="#echipa">Echipa</a>
+            <a href="#organigrama">Organigramă</a>
+            <a href="#oferte">Oferte</a>
+            <a href="sarbatori.html" class="nav-cta">Crăciun & Revelion</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section id="acasa" class="hero">
+        <div>
+            <div class="section-label">firmă de exercițiu • tehnician în activități economice</div>
+            <h1 class="hero-title">Phoenix Bank</h1>
+            <div class="hero-slogan">... unde fiecare vis prinde aripi din nou</div>
+            <p class="hero-text">
+                Phoenix Bank este o firmă de exercițiu cu profil bancar, creată pentru a
+                transforma teoria economică în practică. Aici, elevii învață să lucreze
+                în echipă, să comunice cu „clienți” și să simuleze operațiuni reale
+                din domeniul bancar.
+            </p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" onclick="document.getElementById('servicii').scrollIntoView({behavior:'smooth'})">
+                    Deschide un cont demo
+                </button>
+                <button class="btn btn-outline" onclick="document.getElementById('oferte').scrollIntoView({behavior:'smooth'})">
+                    Vezi ofertele Phoenix Bank
+                </button>
+            </div>
+            <div class="hero-badge">
+                🎓 <span>Specializarea:</span> Tehnician în activități economice
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-decor">
+                <div class="hero-circle one"></div>
+                <div class="hero-circle two"></div>
+            </div>
+            <div class="mascot-pill">
+                <img src="mascota.png" alt="Mascota Phoenix Bank" class="mascot-img">
+                <div>
+                    <strong>Mascotă: Phoenix Bank</strong><br>
+                    prietenul nostru care ne amintește că fiecare vis poate renaște
+                </div>
+            </div>
+            <h3>„Banking de exercițiu” pentru viitori profesioniști</h3>
+            <div class="hero-tagline">
+                Sub coordonarea profesorilor, echipa Phoenix Bank lucrează organizat pe departamente:
+                financiar, marketing, resurse umane și operațiuni bancare.
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat-card">
+                    <strong>4</strong>
+                    departamente cheie care simulează activitatea unei bănci reale
+                </div>
+                <div class="hero-stat-card">
+                    <strong>10</strong>
+                    posturi și roluri organizate într-o structură clară
+                </div>
+                <div class="hero-stat-card">
+                    <strong>100%</strong>
+                    accent pe comunicare, responsabilitate și spirit de echipă
+                </div>
+                <div class="hero-stat-card">
+                    <strong>∞</strong>
+                    idei, proiecte și visuri care prind aripi din nou
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESPRE -->
+    <section id="despre">
+        <div class="section-label">despre noi</div>
+        <h2>Cine este Phoenix Bank?</h2>
+        <p class="section-subtitle">
+            Phoenix Bank este o firmă de exercițiu cu specific bancar, creată în cadrul liceului,
+            unde elevii joacă roluri reale dintr-o organizație economică. Fiecare document, fiecare
+            „tranzacție” și fiecare discuție cu clienții este o ocazie de învățare practică.
+        </p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title-small">Misiunea noastră</h3>
+                    <span class="pill">Educație prin practică</span>
+                </div>
+                <p>
+                    Să pregătim elevii pentru viața profesională, oferindu-le un cadru
+                    în care pot greși, învăța și evolua.
+                </p>
+                <ul>
+                    <li>exersarea comunicării cu clienții;</li>
+                    <li>simularea unor operațiuni bancare;</li>
+                    <li>formarea unei atitudini profesioniste.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title-small">Viziunea Phoenix</h3>
+                    <span class="pill">„Fiecare vis prinde aripi”</span>
+                </div>
+                <p>
+                    Ne imaginăm o generație de tineri economiști pregătiți, încrezători
+                    și flexibili, capabili să se adapteze oricărei provocări.
+                </p>
+                <ul>
+                    <li>spirit de inițiativă și responsabilitate;</li>
+                    <li>creativitate în promovarea serviciilor;</li>
+                    <li>lucru în echipă și colaborare.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title-small">Valorile noastre</h3>
+                    <span class="pill">Respect &amp; profesionalism</span>
+                </div>
+                <p>
+                    Ne bazăm pe respect, încredere și seriozitate, dar nu uităm de
+                    empatie, entuziasm și dorința de a ajuta.
+                </p>
+                <ul>
+                    <li>transparență în activitate;</li>
+                    <li>responsabilitate față de sarcinile primite;</li>
+                    <li>atitudine pozitivă și deschidere.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICII -->
+    <section id="servicii">
+        <div class="section-label">ce simulăm în cadrul firmei</div>
+        <h2>Servicii bancare de exercițiu</h2>
+        <p class="section-subtitle">
+            Phoenix Bank nu oferă servicii reale, ci simulează activitatea unei bănci pentru scop
+            educativ. Astfel, elevii exersează documente, proceduri și comunicarea cu „clienții”.
+        </p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title-small">Conturi de economii &amp; depozite</h3>
+                    <span class="pill">Departamentul Financiar</span>
+                </div>
+                <p>
+                    Elevii întocmesc documente specifice deschiderii de conturi,
+                    simulând înregistrări contabile și situații financiare.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title-small">Credite &amp; planuri de rambursare</h3>
+                    <span class="pill">Operațiuni bancare</span>
+                </div>
+                <p>
+                    Se simulează cereri de credit, analize de bonitate și planuri
+                    de rambursare, pentru a înțelege responsabilitățile unui agent bancar.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title-small">Promovare &amp; relații cu clienții</h3>
+                    <span class="pill">Marketing</span>
+                </div>
+                <p>
+                    Echipa de marketing creează afișe, postări pentru social media
+                    și mesaje de promovare adaptate imaginii Phoenix Bank.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTE -->
+    <section id="oferte">
+        <div class="section-label">oferte educative</div>
+        <h2>Ofertele Phoenix Bank</h2>
+        <p class="section-subtitle">
+            Ofertele sunt de exercițiu și pot fi folosite la ore pentru simularea produselor bancare:
+            conturi, pachete promoționale și campanii de sărbători.
+        </p>
+
+        <div class="offers-grid">
+            <div class="card">
+                <span class="offer-tag">Oferta 1 • Cont JUNIOR</span>
+                <h3 class="card-title-small" style="margin-top:0.6rem;">„Primii pași în economie”</h3>
+                <p>
+                    Cont de economii pentru elevi, folosit la ore pentru a simula alimentarea contului,
+                    retrageri și dobândă.
+                </p>
+                <div class="offer-price">Dobândă educativă: 5%/an (simulare)</div>
+                <p class="offer-note">
+                    Ideal pentru lecții despre economisire și planificare a banilor de buzunar.
+                </p>
+            </div>
+
+            <div class="card">
+                <span class="offer-tag">Oferta 2 • Pachet START-UP</span>
+                <h3 class="card-title-small" style="margin-top:0.6rem;">„Începe-ți afacerea de exercițiu”</h3>
+                <p>
+                    Pachet de cont curent + „linie de credit” pentru firmele de exercițiu partenere,
+                    folosit la simularea relațiilor bancă–firmă.
+                </p>
+                <div class="offer-price">Comision lunar: 0 lei (simulare)</div>
+                <p class="offer-note">
+                    Poate fi folosit la proiecte interdisciplinare cu alte firme de exercițiu.
+                </p>
+            </div>
+
+            <div class="card">
+                <span class="offer-tag">Oferta 3 • Special Sărbători</span>
+                <h3 class="card-title-small" style="margin-top:0.6rem;">„Economii de Crăciun &amp; Revelion”</h3>
+                <p>
+                    Campanie festivă: plan de economii pentru cadouri, vacanță și începutul
+                    de an școlar nou.
+                </p>
+                <div class="offer-price">Bonus educativ: +2% dobândă (simulare)</div>
+                <p class="offer-note">
+                    Detalii complete și materiale de prezentare găsești pe pagina dedicată:
+                    <a href="sarbatori.html"><strong>Crăciun &amp; Revelion Phoenix Bank</strong></a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ECHIPA -->
+    <section id="echipa">
+        <div class="section-label">echipa phoenix bank</div>
+        <h2>Cine face ca visul să prindă aripi?</h2>
+        <p class="section-subtitle">
+            Structura pe posturi și departamente este gândită pentru a semăna cât mai mult
+            cu o bancă reală. Fiecare elev are un rol clar și responsabilități bine definite.
+        </p>
+
+        <div class="team-grid">
+            <div class="team-dept">
+                <h3>Conducere</h3>
+                <div class="team-role">
+                    <strong>Director General</strong>
+                    <span>MICU RALUCA</span>
+                </div>
+                <div class="team-role">
+                    <strong>Director Adjunct</strong>
+                    <span>FĂGĂRAȘ ANTONIA</span>
+                </div>
+            </div>
+
+            <div class="team-dept">
+                <h3>Departamentul Financiar</h3>
+                <div class="team-role">
+                    <strong>Șef Departament Financiar</strong>
+                    <span>PREDA ARIANA</span>
+                </div>
+                <div class="team-role">
+                    <strong>Economist / Contabil</strong>
+                    <span>MANOLE ANA</span>
+                </div>
+                <div class="team-role">
+                    <strong>Casier</strong>
+                    <span>SANDU BIANCA</span>
+                </div>
+            </div>
+
+            <div class="team-dept">
+                <h3>Departamentul Marketing</h3>
+                <div class="team-role">
+                    <strong>Șef Departament Marketing</strong>
+                    <span>DOBRESCU DARIA</span>
+                </div>
+                <div class="team-role">
+                    <strong>Responsabil Relații Clienți</strong>
+                    <span>GOGONȚEA MIHAI</span>
+                </div>
+                <div class="team-role">
+                    <strong>Specialist Social Media</strong>
+                    <span>CERBU ANA</span>
+                </div>
+            </div>
+
+            <div class="team-dept">
+                <h3>Resurse Umane &amp; Operațiuni</h3>
+                <div class="team-role">
+                    <strong>Șef Resurse Umane</strong>
+                    <span>FLEICAN DENISA</span>
+                </div>
+                <div class="team-role">
+                    <strong>Asistent HR</strong>
+                    <span>CORCODEL DENISA</span>
+                </div>
+                <div class="team-role">
+                    <strong>Șef Operațiuni Bancare</strong>
+                    <span>MIHALACHE DIANA</span>
+                </div>
+                <div class="team-role">
+                    <strong>Agent Bancar</strong>
+                    <span>OCHETAN ANTONIA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANIGRAMĂ -->
+    <section id="organigrama">
+    <div class="section-label">structură organizatorică</div>
+    <h2>Organigrama Phoenix Bank</h2>
+    <p class="section-subtitle">
+        Organigrama de mai jos este realizată de echipa Phoenix Bank și arată legătura
+        dintre conducere și cele patru departamente principale ale firmei de exercițiu.
+    </p>
+
+    <div class="org-container">
+        <img src="organigrama.png" alt="Organigrama Phoenix Bank" class="org-image">
+    </div>
+</section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-label">simulare interacțiune cu clienții</div>
+        <h2>Trimite-ne un mesaj (de exercițiu)</h2>
+        <p class="section-subtitle">
+            Formularul de mai jos poate fi folosit la ore pentru a simula cereri de informații,
+            programări sau solicitări de oferte către Phoenix Bank.
+        </p>
+
+        <div class="contact-grid">
+            <form>
+                <label for="nume">Nume complet</label>
+                <input type="text" id="nume" placeholder="Ex: Popescu Andrei">
+
+                <label for="email">Adresă de e-mail</label>
+                <input type="email" id="email" placeholder="exemplu@mail.com">
+
+                <label for="tip">Tip solicitare</label>
+                <select id="tip">
+                    <option>Alegere cont de economii</option>
+                    <option>Informații despre credit</option>
+                    <option>Programare pentru consiliere financiară</option>
+                    <option>Alt tip de solicitare</option>
+                </select>
+
+                <label for="mesaj">Mesaj</label>
+                <textarea id="mesaj" placeholder="Scrie aici mesajul tău de exercițiu..."></textarea>
+
+                <button type="button" class="btn btn-primary" onclick="alert('Într-o bancă reală, mesajul ar fi trimis. Aici este doar o simulare educațională 😊')">
+                    Trimite mesaj (simulare)
+                </button>
+            </form>
+
+            <div class="school-card">
+                <h3>Date de contact</h3>
+                <p><strong>Colegiul Tehnologic „Grigore Cerchez”</strong></p>
+                <p><strong>Adresă:</strong> Calea Șerban Vodă nr. 280</p>
+                <p><strong>Telefon:</strong> 021.336.58.90</p>
+                <p><strong>E-mail firmă de exercițiu:</strong><br>
+                    <a href="mailto:fe.phoenixbank@gmail.com">fe.phoenixbank@gmail.com</a>
+                </p>
+                <p class="contact-note">
+                    Aceste date sunt reale și pot fi folosite pentru corespondența oficială
+                    a firmei de exercițiu.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <span>© <span id="year"></span> Phoenix Bank – firmă de exercițiu, specializarea Tehnician în activități economice.</span>
+        <span>Colegiul Tehnologic „Grigore Cerchez” • Calea Șerban Vodă nr. 280 • Tel. 021.336.58.90 • E-mail: fe.phoenixbank@gmail.com</span>
+    </div>
+</footer>
+
+<!-- Widget muzică de fundal -->
+<div class="music-widget">
+    <span>🎵 Muzică festivă (simulare)</span>
+    <button id="musicToggle" type="button">▶️ Pornește muzica</button>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="muzica_festiva.mp3" type="audio/mpeg">
+    Browserul tău nu suportă redarea audio.
+</audio>
+
+<script>
+    // An în footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle meniu mobil
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('nav-open');
+    });
+
+    // Închidere meniu când se dă click pe un link (pe mobil)
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('nav-open');
+        });
+    });
+
+    // Muzică de fundal
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    let musicPlaying = false;
+
+    musicToggle.addEventListener('click', async () => {
+        try {
+            if (!musicPlaying) {
+                await bgMusic.play();
+                musicPlaying = true;
+                musicToggle.textContent = '⏸ Pauză muzică';
+            } else {
+                bgMusic.pause();
+                musicPlaying = false;
+                musicToggle.textContent = '▶️ Pornește muzica';
+            }
+        } catch (e) {
+            alert('Browserul a blocat redarea. Apasă din nou pe buton sau verifică setările de sunet 😊');
+        }
+    });
+</script>
+
+</body>
+</html>
