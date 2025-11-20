@@ -406,11 +406,11 @@
     position: fixed;
     bottom: 10px;
     left: 10px;
-    width: 160px;
-    z-index: 50;
-    pointer-events: none;
-    opacity: 0.95;
+    width: 150px;
+    z-index: 200;           /* mai mare ca restul, să fie deasupra */
+    pointer-events: none;   /* să nu incomodeze click-urile */
 }
+
 
 .festive-lights {
     position: fixed;
@@ -683,6 +683,12 @@ setInterval(createSnowflake, 150); // densitate fulgi
     <img src="https://i.imgur.com/BcX5bX0.png" style="width:100%;" alt="Brad de Crăciun">
 </div>
 
+<div class="christmas-tree">
+    <img src="brad.png"
+         alt="Brad de Crăciun Phoenix Bank"
+         style="width:100%; display:block;">
+</div>
 
 </body>
 </html>
+
