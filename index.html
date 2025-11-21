@@ -1051,29 +1051,65 @@
                 </button>
             </form>
 
-            <div class="school-card">
-                <h3>Date de contact</h3>
-                <p><strong>Colegiul Tehnologic „Grigore Cerchez”</strong></p>
-                <p><strong>Adresă:</strong> Calea Șerban Vodă nr. 280</p>
-                <p><strong>Telefon:</strong> 021.336.58.90</p>
-                <p><strong>E-mail firmă de exercițiu:</strong><br>
-                    <a href="mailto:fe.phoenixbank@gmail.com">fe.phoenixbank@gmail.com</a>
-                </p>
-                <p class="contact-note">
-                    Aceste date sunt reale și pot fi folosite pentru corespondența oficială
-                    a firmei de exercițiu.
-                </p>
-<div style="width: 100%; margin-top: 20px;">
+<!-- PIN ELEGANT -->
+<a href="https://maps.app.goo.gl/RpTFRpiuGHRWEuMw6" target="_blank" 
+   style="
+       display:flex;
+       align-items:center;
+       gap:10px;
+       padding:12px 16px;
+       margin: 0 auto 20px auto;
+       background: rgba(255,255,255,0.95);
+       border-radius:12px;
+       text-decoration:none;
+       width:max-content;
+       box-shadow:0 4px 14px rgba(0,0,0,0.20);
+       transition:0.25s;
+   "
+   onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.25)';"
+   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 14px rgba(0,0,0,0.20)';"
+>
+    <img src="https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png" 
+         width="32" height="32" alt="pin">
+    <span style="color:#111; font-weight:600; font-size:0.95rem; letter-spacing:0.5px;">
+        Vezi locația pe hartă
+    </span>
+</a>
+
+<!-- HARTA MICĂ CU PIN EXACT -->
+<div style="width: 100%; display: flex; justify-content: center; margin-bottom: 25px;">
     <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.3612373161237!2d26.104885075820354!3d44.3999432041597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff8c60a89b17%3A0x9aa03b73089c7478!2sColegiul%20Tehnologic%20%C3%82%C2%80%C3%82%C2%9EGrigore%20Cerchez%C3%82%C2%80%C3%82%C2%9D!5e0!3m2!1sro!2sro!4v1709733754020!5m2!1sro!2sro" 
-        width="100%" 
-        height="350" 
-        style="border:0; border-radius: 12px;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+        width="250" 
+        height="250" 
+        style="border:0; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.18);"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2849.3612373161237!2d26.104885!3d44.399943!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff8c60a89b17%3A0x9aa03b73089c7478!2sColegiul%20Tehnologic%20%22Grigore%20Cerchez%22!5e0!3m2!1sro!2sro!4v1709751000000"
+    ></iframe>
 </div>
+
+<!-- DATE DE CONTACT PHOENIX BANK -->
+<div style="text-align:center;">
+    <p style="font-size:1.1rem; font-weight:700; margin:0; color:var(--primary);">
+        Colegiul Tehnologic „Grigore Cerchez”
+    </p>
+
+    <p style="margin:6px 0; font-size:0.95rem;">
+        <strong>Adresă:</strong> Calea Șerban Vodă nr. 280, București
+    </p>
+
+    <p style="margin:6px 0; font-size:0.95rem;">
+        <strong>Telefon:</strong> 021.336.58.90
+    </p>
+
+    <p style="margin:6px 0; font-size:0.95rem;">
+        <strong>E-mail:</strong> 
+        <a href="mailto:fe.movimientorecords@gmail.com" style="color:var(--secondary); font-weight:600;">
+            fe.movimientorecords@gmail.com
+        </a>
+    </p>
+</div>
+
 
             </div>
         </div>
@@ -1141,6 +1177,7 @@
 
 </body>
 </html>
+
 
 
 
