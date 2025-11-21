@@ -566,6 +566,45 @@
         .school-card p {
             margin: 0.2rem 0;
         }
+.map-wrapper {
+    margin-top: 0.8rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.map-embed {
+    width: 100%;
+    height: 220px;
+    border: 0;
+    display: block;
+}
+
+.map-pin-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    margin-top: 0.5rem;
+    border-radius: 999px;
+    background: #111318;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.map-pin-button span {
+    font-size: 1rem;
+}
+
+.map-pin-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+    background: #1f2330;
+}
 
         /* Footer */
         footer {
@@ -679,6 +718,43 @@
                 grid-template-columns: minmax(0, 1fr);
             }
         }
+/* Contact - stil hartă + pin */
+.map-wrapper {
+    margin-top: 0.9rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.map-embed {
+    width: 100%;
+    height: 220px;
+    border: 0;
+    display: block;
+}
+
+.map-pin-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1rem;
+    margin: 0.6rem 0 0.8rem 0;
+    border-radius: 999px;
+    background: #111318;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transition: 0.2s ease;
+}
+
+.map-pin-button:hover {
+    transform: translateY(-2px);
+    background: #1b1f2a;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.28);
+}
+
     </style>
 </head>
 <body>
@@ -1018,98 +1094,74 @@
 </section>
 
 
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="section-label">simulare interacțiune cu clienții</div>
-        <h2>Trimite-ne un mesaj (de exercițiu)</h2>
-        <p class="section-subtitle">
-            Formularul de mai jos poate fi folosit la ore pentru a simula cereri de informații,
-            programări sau solicitări de oferte către Phoenix Bank.
-        </p>
-
-        <div class="contact-grid">
-            <form>
-                <label for="nume">Nume complet</label>
-                <input type="text" id="nume" placeholder="Ex: Popescu Andrei">
-
-                <label for="email">Adresă de e-mail</label>
-                <input type="email" id="email" placeholder="exemplu@mail.com">
-
-                <label for="tip">Tip solicitare</label>
-                <select id="tip">
-                    <option>Alegere cont de economii</option>
-                    <option>Informații despre credit</option>
-                    <option>Programare pentru consiliere financiară</option>
-                    <option>Alt tip de solicitare</option>
-                </select>
-
-                <label for="mesaj">Mesaj</label>
-                <textarea id="mesaj" placeholder="Scrie aici mesajul tău de exercițiu..."></textarea>
-
-                <button type="button" class="btn btn-primary" onclick="alert('Într-o bancă reală, mesajul ar fi trimis. Aici este doar o simulare educațională 😊')">
-                    Trimite mesaj (simulare)
-                </button>
-            </form>
-
-<!-- PIN ELEGANT -->
-<a href="https://maps.app.goo.gl/RpTFRpiuGHRWEuMw6" target="_blank" 
-   style="
-       display:flex;
-       align-items:center;
-       gap:10px;
-       padding:12px 16px;
-       margin: 0 auto 20px auto;
-       background: rgba(255,255,255,0.95);
-       border-radius:12px;
-       text-decoration:none;
-       width:max-content;
-       box-shadow:0 4px 14px rgba(0,0,0,0.20);
-       transition:0.25s;
-   "
-   onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.25)';"
-   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 14px rgba(0,0,0,0.20)';"
->
-    <img src="https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png" 
-         width="32" height="32" alt="pin">
-    <span style="color:#111; font-weight:600; font-size:0.95rem; letter-spacing:0.5px;">
-        Vezi locația pe hartă
-    </span>
-</a>
-
-<!-- HARTA MICĂ CU PIN EXACT -->
-<div style="width: 100%; display: flex; justify-content: center; margin-bottom: 25px;">
-    <iframe 
-        width="250" 
-        height="250" 
-        style="border:0; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.18);"
-        loading="lazy"
-        allowfullscreen
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2849.3612373161237!2d26.104885!3d44.399943!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff8c60a89b17%3A0x9aa03b73089c7478!2sColegiul%20Tehnologic%20%22Grigore%20Cerchez%22!5e0!3m2!1sro!2sro!4v1709751000000"
-    ></iframe>
-</div>
-
-<!-- DATE DE CONTACT PHOENIX BANK -->
-<div style="text-align:center;">
-    <p style="font-size:1.1rem; font-weight:700; margin:0; color:var(--primary);">
-        Colegiul Tehnologic „Grigore Cerchez”
+   <!-- CONTACT -->
+<section id="contact">
+    <div class="section-label">simulare interacțiune cu clienții</div>
+    <h2>Trimite-ne un mesaj (de exercițiu)</h2>
+    <p class="section-subtitle">
+        Formularul de mai jos poate fi folosit la ore pentru a simula cereri de informații,
+        programări sau solicitări de oferte către Phoenix Bank.
     </p>
 
-    <p style="margin:6px 0; font-size:0.95rem;">
-        <strong>Adresă:</strong> Calea Șerban Vodă nr. 280, București
-    </p>
+    <div class="contact-grid">
 
-    <p style="margin:6px 0; font-size:0.95rem;">
-        <strong>Telefon:</strong> 021.336.58.90
-    </p>
+        <!-- FORMULAR -->
+        <form class="reveal">
+            <label for="nume">Nume complet</label>
+            <input type="text" id="nume" placeholder="Ex: Popescu Andrei">
 
-    <p style="margin:6px 0; font-size:0.95rem;">
-        <strong>E-mail:</strong> 
-        <a href="mailto:fe.movimientorecords@gmail.com" style="color:var(--secondary); font-weight:600;">
-            fe.movimientorecords@gmail.com
-        </a>
-    </p>
-</div>
+            <label for="email">Adresă de e-mail</label>
+            <input type="email" id="email" placeholder="exemplu@mail.com">
 
+            <label for="tip">Tip solicitare</label>
+            <select id="tip">
+                <option>Alegere cont de economii</option>
+                <option>Informații despre credit</option>
+                <option>Programare pentru consiliere financiară</option>
+                <option>Alt tip de solicitare</option>
+            </select>
+
+            <label for="mesaj">Mesaj</label>
+            <textarea id="mesaj" placeholder="Scrie aici mesajul tău de exercițiu..."></textarea>
+
+            <button type="button" class="btn btn-primary"
+                onclick="alert('Într-o bancă reală, mesajul ar fi trimis. Aici este doar o simulare educațională 😊')">
+                Trimite mesaj (simulare)
+            </button>
+        </form>
+
+        <!-- CARD DATE + HARTĂ -->
+        <div class="school-card reveal">
+
+            <h3>Date de contact</h3>
+
+            <p><strong>Colegiul Tehnologic „Grigore Cerchez”</strong></p>
+            <p><strong>Adresă:</strong> Calea Șerban Vodă nr. 280, București</p>
+            <p><strong>Telefon:</strong> 021.336.58.90</p>
+            <p>
+                <strong>E-mail:</strong>
+                <a href="mailto:fe.phoenixbank@gmail.com">fe.phoenixbank@gmail.com</a>
+            </p>
+
+            <!-- PIN ELEGANT -->
+            <a href="https://maps.app.goo.gl/RpTFRpiuGHRWEuMw6" target="_blank" class="map-pin-button">
+                <span>📍</span>
+                <span>Vezi locația pe Google Maps</span>
+            </a>
+
+            <!-- HARTĂ MICĂ CU PIN EXACT -->
+            <div class="map-wrapper">
+                <iframe class="map-embed"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2849.3612373161237!2d26.104885!3d44.399943!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff8c60a89b17%3A0x9aa03b73089c7478!2sColegiul%20Tehnologic%20%22Grigore%20Cerchez%22!5e0!3m2!1sro!2sro!4v1709751000000">
+                </iframe>
+            </div>
+
+        </div>
+    </div>
+</section>
 
             </div>
         </div>
@@ -1177,6 +1229,7 @@
 
 </body>
 </html>
+
 
 
 
